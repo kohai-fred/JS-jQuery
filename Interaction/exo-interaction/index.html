@@ -1,0 +1,105 @@
+<html>
+	<head>
+        <title>Ex : gestion de la souris</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    
+    <body>
+    	<h1>Gestion de la souris</h1>
+        
+        <button id="toggle-rectangle">Masquer/afficher</button>
+        
+        <div class="rectangle"></div>
+    
+    
+    	<!--<sript src="script.js"></sript>-->
+        <script>
+          /* 1 SELECTION DES ELMTS HTML */
+          var btn = document.querySelector('button#toggle-rectangle');
+          var rectangle = document.querySelector('div.rectangle');
+          
+         
+
+          /* 2 LES FONCTIONS */
+          function showOrHideRectangle() {
+           rectangle.classList.toggle('hide');
+          }
+
+          function onMouseoverRectangle() {
+           rectangle.classList.add('important');
+          }
+
+          function onMouseoutRectangle() {
+           rectangle.classList.remove('important');
+           rectangle.classList.remove('good');
+          }
+
+          function onDblclickRectangle() {
+           rectangle.classList.toggle('good');
+          }
+          
+          
+
+          /* 3 LE ou LES ECOUTEURS D'EVTs */
+
+          // 1ere interaction masquer/afficher le rectangle
+          // au click sur bouton -> ajouter/retirer à la div une class qui la masque
+          btn.addEventListener('click', showOrHideRectangle);
+
+          // 2eme au survol sur l'élt rectangle -> on ajoute la class important (mouseover)
+          //      en sortant de l'elt rectangle -> on retire la class important	(mouseout)
+          rectangle.addEventListener('mouseover', onMouseoverRectangle);
+          rectangle.addEventListener('mouseout', onMouseoutRectangle);
+
+
+          // 3eme interaction
+          // au double-click sur le rectangle on lui ajoute la class good (dblclick)
+          rectangle.addEventListener('dblclick', onDblclickRectangle);
+          
+          
+        
+        
+        </script>
+    </body>
+
+</html>
+<!-- e5a
+## Enoncé
+
+Construire un programme affichant un rectangle de couleur qui réagit à différentes interactions avec la souris de l'utilisateur.
+
+## Consignes
+
+### HTML
+
+Dans l'en-tête de la page :
+
+- Ajouter un titre au programme : "Gestion de la Souris".
+- Créer un bouton (*id : toggle-rectangle*) ayant pour intitulé "Cacher / Afficher le rectangle".
+
+Dans la partie principale de la page :
+
+- Créer une balise **div** vide (*class : rectangle*) pour le rectangle.
+
+### CSS
+
+- Le rectangle est bleu (*royalblue*), de taille 400x300 pixels et possède des coins arrondis.
+- Lorsqu'on applique la classe *good* en plus au rectangle, il devient vert (*limegreen*).
+- Lorsqu'on applique la classe *important* en plus au rectangle, il devient rouge (*firebrick*).
+- Le changement de couleur du rectangle doit s'animer.
+- Ajouter le CSS nécessaire restant pour que le programme fonctionne.
+
+### Interactions
+
+- Quand on clique sur le bouton *toggle-rectangle*, cela cache ou affiche le rectangle.
+- Quand la souris se déplace à l'intérieur du rectangle il devient rouge; il reprend sa couleur originale quand la souris n'est plus dedans.
+- Quand on double-clique sur le rectangle il devient vert.
+
+Nom des events : (click, mouseenter, mouseout, dblclick)
+Syntaxe pour poser un écouteur d'Evt : elt.addEventListener(nomdelEvent, nomDeLaFonctionAExecuter)
+
+## Remarques
+
+- les variables(les selections), les fonctions, et enfin les écouteurs d'evt.
+- Nommer correctement les gestionnaires d'évènements pour qu'ils aient un sens. -->
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type, conversion de type et concaténation</title>
+</head>
+
+<body>
+    <h1>Type, conversion de type et concaténation</h1>
+    
+
+    <script>
+        //Objectif : demander le prénom de l'utilisateur et afficher phrase sous la forme
+        // "Je m'appelle Fred"
+        var prenom;
+
+        //DEMANDER une saisie au user
+        prenom = window.prompt('Quel est votre prénom'); // Fred
+
+        // Afficher la prase
+        document.write("Je m'appelle " + prenom ); // "Je m'appelle Fred"
+
+        /*****************************************/
+
+        // Objectif : Demander au usesr
+        // > un premier nmbre
+        // > un deuxieme nombre
+        // Afficher le résultat sous la forme:
+        //"Le résultat de l'addition est : 548"
+
+        var nombre1;
+        var nombre2;
+        var resultat;
+
+        nombre1 = window.prompt("saisissez un 1er nombre"); // ex: "5"
+        nombre1 = parseInt(nombre1); // 5
+
+        nombre2 = window.prompt("saisissez un 2eme nombre"); // ex: "7"
+        nombre2 = parseInt(nombre2);// 7
+
+        resultat = nombre1 + nombre2; // 12
+
+        document.write(" Le résultat de l'addition est : " + resultat);
+    </script>
+</body>
+</html>

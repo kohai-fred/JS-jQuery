@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boucle - while</title>
+</head>
+<body>
+    <h1>Saisie OBLIGATOIRE</h1>
+
+    <script>
+
+        /* 
+        https://sharemycode.fr/7om
+
+Les boucles
+servent à répéter du code
+
+LA BOUCLE FOR 
+répète du code un nombre de fois déterminé à l'avance
+
+for(initialisation; condition de continuité; pas d'incrémention) {
+	// code à éxecuter
+}
+
+------------------------------------------------
+
+LA BOUCLE WHILE
+répète du code tant que qu'une expression vaut TRUE
+(il n'y a pas de notions de comptage à l'avance)
+
+while(expression ou une valeur qui vaut TRUE ou FALSE) {
+ // code à exécuter
+}
+
+#ENONCE  
+## Enoncé
+Demander à l'utilisateur de saisir obligatoirement un nombre quoiqu'il arrive, afficher ce nombre ensuite en HTML.
+
+## Remarques
+* On peut saisir un nombre entier comme un nombre à virgule.
+* On veut présenter un prompt une première fois quoi qu'il arrive
+         */
+
+    var nombre;
+
+    nombre = parseFloat(window.prompt('Saisissez un nombre'));
+    //console.log(nombre);
+
+    while(isNaN (nombre)){
+    nombre = window.prompt('Saisissez correctement un nombre');
+
+    }
+    document.write("<p>Vous avez saisi " + nombre + " . BRAVO!</p>")
+    //console.log(isNaN);
+
+    /*******************************************************/
+  /*
+   La Boucle DO WHILE
+   execute au moins une fois
+   et ENSUITE teste si une expression vaut TRUE
+  */
+  /* do {
+  	nombre = window.prompt('Veuillez saisir un nombre')
+  }while( isNaN(nombre) == true ) */
+
+    </script>
+</body>
+</html>

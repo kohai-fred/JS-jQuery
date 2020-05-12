@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo - calculette - conditions</title>
+</head>
+<body>
+    <h1>Calculatrice HT vers TTC avec conditions remise</h1>
+
+
+    <script>
+        /*  https://sharemycode.fr/jcx
+             ex-conditions
+                > index.html
+                
+            ## Enoncé
+
+            > L'utilisateur saisit un montant HT 
+            > et peut saisir s'il le souhaite appliquer une remise ('oui' ou 'yes'), 
+            > et peut saisir le pourcentage de la remise
+
+            ## Remarques
+
+            * L'utilisateur doit pouvoir répondre 'oui' ou 'yes' à la demande de remise.
+            * La saisie de la remise se fait en pourcentage, un nombre à virgule donc, et elle s'applique sur le montant HT autrement il y a fraude à la TVA ;-)
+
+            * Au moment de l'affichage on doit connaître le pourcentage de remise, s'il y en a eu une, ou bien savoir le fait qu'aucune remise n'a été appliquée.
+
+            * Il faut répéter le moins de code possible, notamment il ne faut pas répéter le calcul du montant TTC final.
+        */  
+
+         /*
+    	AFFICHAGE SI REMISE :
+        Pour un montant HT de 80 € il y a 16 € de TVA.
+		Le montant TTC est donc de 96 €.
+		Une remise de 20% a été appliquée sur le montant HT.
+        
+        AFFICHAGE SI PAS DE REMISE
+        Pour un montant HT de 100 € il y a 20 € de TVA.
+		Le montant TTC est donc de 120 €.
+        Aucune remise n'a été appliquée
+        
+    */
+        const TAUX_TVA = 20/100;
+        var montant_ht, montant_tva, montant_ttc, montant_remise;
+        var montant_ht_apres_remise;
+        var demande_remise; // oui ou yes
+        var pourcentage_tva; // 20
+
+        // 1 demander montant HT
+        montant_ht = parseInt(window.prompt("Montant HT"));
+
+        // 2 demander SI remise
+        demande_remise = window.prompt("Souhaitez-vous effectuer une remise?");
+        /* demande_remise = demande_remise.toLowerCase(); */
+
+        pourcentage_tva = parseFloat(window.prompt("Indiquez le montant de la TVA:") / 100);
+
+        // 3.1 SI il veut une remise 
+    //	 --> demander le pourcentageRemise 
+        if(demande_remise == "yes" || demande_remise == "oui"){
+            montant_remise = parseFloat(window.prompt("Indiquez le montant:"));
+            montant_ht_apres_remise = montant_ht - montant_remise;
+            montant_tva = montant_ht_apres_remise * pourcentage_tva;
+            montant_ttc = montant_ht_apres_remise + montant_tva;
+
+            document.write("<p>Le montant HT après remise est de " + montant_ht_apres_remise + "€, le montant de la TVA est de: " + montant_tva +"€.</p>" );
+            document.write("<p>Un montant de " + montant_remise + "€ a été appliqué sur le montant HT. </p>")
+            document.write("<p> Le montant TTC après remise est de : " + montant_ttc + "€.</p>")
+        }
+
+        else{
+            montant_ttc = montant_ht - pourcentage_tva;
+            document.write("<p>Pour un montant HT de :" + montant_ht + "€, il y a : " + pourcentage_tva + "% de TVA</p>");
+            document.write("<p>Le montant TTC est de : " + montant_ttc + "€.</p>");
+            document.write("<p>Aucune remise n'a été appliquée.");
+        }
+    //	 --> calculs montant_ht_apres_remise, montant_tv,  montant_ttc   
+        
+    //   --> affichge
+    
+    // 3.2 SINON
+   	//	 --> calculs montant_tv,  montant_ttc   
+    //   --> affichge
+
+    /************************************************************************
+                CORRECTION
+        
+                
+          const TAUX_TVA = 20 / 100;
+  var montant_ht, montant_tva, montant_ttc;
+  var montant_ht_apres_remise;
+  var demandeRemise; // oui ou yes
+  var pourcentageRemise; // 20
+  var superRemise;
+
+  // 1 demander le montant HT
+  montant_ht = parseFloat(window.prompt("Saisissez le montant HT"));
+
+  // 2 demander SI remise
+  demandeRemise = window.prompt('Voulez-vous appliquer une remise?');
+
+  if (demandeRemise == 'oui' || demandeRemise == 'yes') {
+      //	 --> demander le pourcentageRemise 
+      pourcentageRemise = parseFloat(window.prompt("Pourcentage de la remise ? "));
+      //	 --> calculs montant_ht_apres_remise, montant_tva,  montant_ttc 
+      montant_ht_apres_remise = montant_ht - (montant_ht * pourcentageRemise / 100);
+      montant_tva = montant_ht_apres_remise * TAUX_TVA;
+      montant_ttc = montant_ht_apres_remise + montant_tva;
+      //console.log(montant_ttc);
+      //   --> affichage
+      document.write("<p>Pour un montant HT de " + montant_ht_apres_remise + "€ il y a " + 	montant_tva + "€ de TVA.</p>");
+      document.write("<p>Le montant TTC est donc de " + montant_ttc + "€.</p>");
+      document.write("<p>Une remise de " + pourcentageRemise + "% a été appliquée</p>");
+  }
+  else {
+      // Le cas ou l'utiliseur NE VEUT PAS une remise
+      //	--> calculs montant_tva,  montant_ttc  
+      montant_tva = montant_ht * TAUX_TVA;
+      montant_ttc = montant_ht + montant_tva;
+      //  --> affichage
+      document.write("<p>Pour un montant HT de " + montant_ht + "€ il y a " + montant_tva + "€ de TVA.</p>");
+      document.write("<p>Le montant TTC est donc de " + montant_ttc + "€.</p>");
+      document.write("<p>Aucune remise n'a été appliquée</p>");
+  }
+     */
+
+    </script>
+</body>
+</html>

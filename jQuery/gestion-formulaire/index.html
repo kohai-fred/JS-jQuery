@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de formulaire</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gestion de formulaire</h1>
+        
+        <div class="top-form"></div>
+
+        <form action="">
+
+            <div class="form-group">
+
+                <label for="prenom">Prénom:</label>
+                <input type="text">
+                <p class="error"></p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="situation">Situation:</label>
+                <select name="situation" id="">
+    
+                    <option value="0">-- Veuillez selectionner un choix</option>
+    
+                    <option value="1">Entrepreneur</option>
+                    <option value="2">Salarié</option>
+                    <option value="3">Demandeur d'emploi</option>
+    
+                </select>
+                <p class="error"></p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="area">Votre message:</label>
+                <textarea name="area" id="" cols="30" rows="10" placeholder="Votre message: mini 10 charactères max 50 charactères" placeholder=""></textarea>
+                <p class="error"></p>
+            </div>
+
+            <button type="submit">Envoyer</button>
+
+        </form>
+
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
+    
+</body>
+
+</html>
+
+<!-- 
+
+    https://sharemycode.fr/ptc
+
+#Enoncé : Réaliser le traitement d'un formulaire
+
+## HTML
+- un titre h1 : gestion de formulaire
+- une baslise form qui contient 3 champs ET un bouton de soumission : 
+  -> input "prenom"
+  -> select "situation" (sélectionner un choix, entrepreneur, salarié, demandeur d'emploi)
+  -> textarea "Votre message"
+  -> bouton type submit <button type="submit">Envoyer</button>
+
+## CSS
+- centrer le contenu dans un container de 500px
+- l'input, le select et le textarea ont une largeur de 100%
+
+
+## JS
+L'interaction : la soumission du form
+--------------------------------------------
+exemple pour récupérer la valeur d'un champ: 
+
+  function onSubmit(event) {
+   event.preventDefault();
+   // event.preventDefault 
+   // > couper le comportement par défaut d'un form
+   // > empêche la page de se recharger
+   console.log($('input').val());
+  }
+
+  $('form').on('submit', onSubmit);
+  
+----------------------------------------------
+
+Afficher les erreurs correspondantes sous les champs :
+
+Les règles de valisation : 
+-> prenom : 
+   -> le champ doit contenir un prenom
+   -> le prénom doit comporter au moins 2 caractères
+   
+-> situation 
+   -> vous devez sélectionner un choix
+   
+-> message
+   -> le message doit comporter au moins 10 caractères
+   -> le message doit comporte maximum 50 caractères
+   
+-----------------------------------------------
+
+BONUS : 
+Afficher une boite d'alert d'erreur ou de succès
+- En cas d'erreur, elle doit avoir un background red et le message "il y 3 erreurs"
+- En cas de succès, elle doit avoir un background green et le message "Coool, le formulaire a été envoyé !"
+
+ -->

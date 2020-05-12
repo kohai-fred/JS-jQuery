@@ -1,0 +1,84 @@
+https://sharemycode.fr/ov8
+
+>les-boucles
+ > la boucle for
+ 	index.html
+
+-> Les boucles
+répéter du code
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>La boucle for</title>
+</head>
+<body>
+ 
+
+
+<script>
+ /*
+  LA BOUCLE FOR
+  fonctionnement: répète du code un nombre fois déterminé
+ */
+ var eleves = ["Meryem", "Claude", "Laura", "Leïla", "Yann", "Fred"];
+ 
+ document.write("<ul>");
+ 
+ document.write("<li>" + eleves[0] + "</li>");
+ document.write("<li>" + eleves[1] + "</li>");
+ document.write("<li>" + eleves[2] + "</li>");
+ document.write("<li>" + eleves[3] + "</li>");
+ document.write("<li>" + eleves[4] + "</li>");
+ 
+ document.write("</ul>");
+ 
+ /*
+  Explication de la boucle for
+  dans les parenthèses, on renseigne 3 éléments
+  1 L initialisation : var compteur = 1
+  2 Condition de continuité de la boucle (tant que l'expression vaut TRUE la boucle continue)
+  3 Le pas d'incrémentation
+ */
+ for(var compteur=1; compteur<=10; compteur=compteur+1) {
+ 	// Code à executer
+    console.log(compteur);
+ }
+ console.log("fin")
+ 
+ 
+ /*
+ 	EXEMPLE D'UTILISATION COURANT : AFFICHER DES LISTES
+ */
+ for(var index=0; index<eleves.length; index++) {
+ 	document.write("<p>" + eleves[index] + "</p>");
+ }
+ 
+ 
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

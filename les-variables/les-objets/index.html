@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les objets</title>
+</head>
+<body>
+    <h1>Les objets</h1>
+
+    <script>
+        /* 
+            Si un tableau (array) sert à stocker des listes
+            L'objet sert à stocker des données riches sur une entitée.
+         */
+
+         var product = {
+             title: "Xbox",
+             price: 309.00,
+             image: "https://d1eh9yux7w8iql.cloudfront.net/product_images/1548771803.05.jpg",
+             description : "lorem ipsum"
+         }
+         console.log(product);
+
+         document.write("<h1>" + product.title + "</h1>");
+         document.write("<p>" + product.price.toFixed(2) + "€</p>");
+         document.write("<img src=' "+ product.image+ " '> ");
+
+         /************************************/
+
+          /********************************************/
+    // > Créer un objet user qui contient les propriétés
+    // firstname, lastname, email, notes
+    // > Afficher l'utilisateur 
+    //	 <p>Fred lo</p>
+    //   <p>email: fred@gmail.com</p>
+    //   <ul>
+    //		<li>12/20</li>
+    //		<li>18/20</li>
+    //		<li>19/20</li>
+    //	 </ul>
+         
+         var user = {
+             firstname: "Fred",
+             lastname: "Vu",
+             email: "yopmail@gmail.com",
+            notes: [12, 18, 19],
+         }
+         console.log(user);
+
+         document.write("<p>" + user.firstname + " " + user.lastname + "</p>");
+         document.write("<p> email : " + user.email + "</p>");
+         document.write("<ul>");
+            document.write("<li>" + user.notes[0] + "/20 </li>") 
+            document.write("<li>" + user.notes[1] + "/20 </li>")    
+            document.write("<li>" + user.notes[2] + "/20 </li>")    
+
+        document.write("</ul>");
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les opérateurs de comparaisons</title>
+</head>
+<body>
+    <h1>Les opérateurs de comparaisons</h1>
+
+    <script>
+
+        /* 
+            Les operateurs de comparaisons permettent de comparer 2 valeurs.
+            Leur rôle est de retourner TRUE ou FALSE.
+
+            égalité : == ou ===
+            supérieur: > ou >=
+            inférieur : < ou <=
+            différence: != ou !==
+
+            exemples:
+            25 == 25; // TRUE
+            26 == 25; // FALSE
+            26 > 25; // TRUE
+            26 < 25; // FALSE
+            26 != 26; // FALSE
+         */
+
+        // var age = parseInt(window.prompt("Quel âge avez-vous?"))
+         var age = window.prompt("Quel âge avez-vous?");
+         age = parseInt(age);
+
+         var est_majeur;
+         var a_trente_ans;
+         var est_pas_centenaire;
+
+         est_majeur = (age >= 18);
+         a_trente_ans = (age == 30);
+         est_pas_centenaire = age < 100;
+
+         document.write("<p> Vous êtes majeur : " + est_majeur + ". </p>");
+         document.write("<p> Vous avez 30 ans : " + a_trente_ans + ".</p>");
+         document.write("<p> Vous n'êtes pas centenaire : " + est_pas_centenaire + ".</p>");
+         
+    </script>
+</body>
+</html>

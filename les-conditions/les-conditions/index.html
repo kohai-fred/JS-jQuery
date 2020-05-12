@@ -1,0 +1,82 @@
+https://sharemycode.fr/hvn
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Les conditions</title>
+
+</head>
+<body>
+
+ <h1>Les conditions</h1>
+
+ <script>
+  /*
+   LES CONDITIONS
+   ELLES SERVENT A EXECUTER DU CODE SI QUELQUE CHOSE VAUT TRUE
+
+   1 la structure conditionnelle simple : if
+   2 la structure conditionnelle alternative : if / else
+   3 la strcuture conditionnelle de cas : if / else if / else
+  */
+  
+   var age = window.prompt('Quel âge avez-vous?');
+   var prenom = window.prompt('Vôtre prénom?');
+   prenom = prenom.toLowerCase();
+
+   
+   //  1 la structure conditionnelle simple : if
+   if(age >= 18) {
+        // Code à executer
+        document.write("<p>Vous êtes majeur</p>");
+   }  
+  
+
+   // 2 la structure alternative : if/else
+   if(age<20){
+       // code à éxecuter
+       document.write("<p>Vous avez moins de 20ans</p>");
+   }
+   else {
+       document.write("<p>Vous avez 20 ans ou plus!</p>");
+   }
+   
+
+   // 3 la structure de cas
+   //  "fred", "elsa", "marie", "rubens" est invité.
+
+   if(prenom == "fred"){
+    document.write("<p>Vous êtes invité(e)</p>")
+   }
+   else if(prenom == "elsa"){
+    document.write("<p>Vous êtes invité(e)</p>")
+   }
+   else if(prenom == "marie"){
+    document.write("<p>Vous êtes invité(e)</p>")
+   }
+   else if(prenom == "rubens"){
+    document.write("<p>Vous êtes invité(e)</p>")
+   }
+   else{
+    document.write("<p>Vous n'êtes pas invité(e)</p>")
+   }
+
+   // le moteur d'execution JS du BLOC conditionel une fois qu'un cas est executeé
+
+   // Les opérateurs logique ET (&&) et OU (||)
+   if(prenom == "fred" || prenom == "elsa" || prenom == "marie" || prenom == "rubens"){
+    document.write("<p>Vous êtes invité(e)</p>")
+   }
+   else{
+    document.write("<p>Vous n'êtes pas invité(e)</p>")
+   }
+
+   if(prenom == "marie" && age ==20){
+    document.write("<p> Vous êtes Marie et vous avez 20 ans</p>");
+   }
+
+ </script>
+ 
+</body>
+</html>

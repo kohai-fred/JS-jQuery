@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo - TVA</title>
+</head>
+
+<body>
+    <h1>Calculatrice HT vers TTC</h1>
+
+    <script>
+        // 0 Déclarer toutes les variables
+        const TAUX_TVA = 20/100;
+        var montant_ht;
+        var montant_tva;
+        var montant_ttc;
+
+        // 1 demander le montant_ht à l'utilisateur
+        montant_ht = window.prompt("Saisissez votre montant HT");
+        montant_ht = parseFloat(montant_ht);
+        console.log(montant_ht);
+
+        // 2 calculer montant_tva et montant_ttc
+        montant_tva = montant_ht * TAUX_TVA;
+        montant_ttc = montant_ht + montant_tva;
+
+        // 3 afficher la phrase
+        document.write("<P>Pour un montant HT de " + montant_ht + "€ , il y a " + montant_tva + "€ de TVA.</p>");
+        document.write("<p>Le montant TTC est " + montant_ttc + "€</p>");
+    </script>
+</body>
+
+</html>

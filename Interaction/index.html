@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Selection et modification du DOM</title>
+ 
+ <style>
+ 	.border-red {
+     border:1px solid red
+    }
+ 
+ </style>
+ 
+</head>
+<body>
+ <button>Action</button>
+ <h1>Ce texte va changer</h1>
+
+ <p id="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+ <ul class="list">
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+  <li class="item">Item 3</li>
+ </ul>
+
+ <script>
+  // document.getElementById() // Retourner le 1er element qui l'id spécifié en paramètre
+  // Exemple : on selectionne le p
+  var paragraphElt = document.getElementById("paragraph");
+  console.log(paragraphElt);
+
+  // getElementsByTagName() retourne une collection d'elt HTML par le nom de balise en param
+  var titles = document.getElementsByTagName("h1");
+  console.log(titles[0]);
+
+  // getElementsByClassName()retourne une collection d'elt HTML par une class CSS en param
+  var items = document.getElementsByClassName("item");
+  console.log(items);
+
+  // querySelector() //  retourne le 1er elt qui comporte la selection CSS passée en param
+  var list = document.querySelector('ul.list');
+  console.log(list);
+
+  // querySelectorAll() // retourne un array d'elt HTML qui comporte la selection CSS passée en param
+  var li = document.querySelectorAll("li.items");
+  console.log(li);
+  
+  var btn = document.querySelector('button');
+  console.log(btn);
+
+  /************** SAVOIR MODIER LE DOM (Document Object Model) ********************************/
+  
+  // modifer du texte
+  titles[0].textContent = "<p>Je sais modifier du texte<p>";
+  
+  // modifier du HTML
+  paragraphElt.innerHTML = "<small>Je sais modifier du HTML</small>";
+ 
+   // modifier du CSS inline (sur la balise directement)
+  paragraphElt.style.color = 'blue';
+
+  for (var i = 0; i < li.length; i=i+2) {
+   li[i].style.color = "orange";
+  }
+
+
+  // Ajouter/retirer des class CSS à un elt HTML
+  // elt.className = 'important';
+
+  // elt.classList.add() // ajoute à l'elt la class spécifiée à en param
+  // elt.classList.remove() // retire à l'elt la class spécifiée en param
+  // elt.classList.toggle() // ajoute/retire alternativement la class spécifiéee en param
+  // elt.classList.contains()//teste si la class est présente sur l'elt HTML (TRUE ou FALSE)
+  list.classList.add('border-red');
+  list.classList.remove('border-red');
+  
+  
+  
+  /* SAVOIR GERE LES EVENEMENTS */
+  // on pose un écouteur d'évenement
+  function changeListStyle() {
+  	list.classList.toggle('border-red');
+  }
+  
+  btn.addEventListener('click', changeListStyle);
+  
+  
+  
+  
+  
+
+    
+ </script>
+ 
+</body>
+</html>

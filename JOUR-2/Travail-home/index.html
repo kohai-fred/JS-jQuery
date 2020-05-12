@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo - remises</title>
+</head>
+<body>
+    <h1>Exo - Les remises</h1>
+
+
+
+    <script>
+
+
+        // 1 Saisir montant HT
+
+        var montantHT;
+        var demandeRemise;
+        var montantRemise;
+        var montantTva;
+        var calculRemise;
+        var calculTvaRemise;
+        var totalTtcRemise;
+        var totalTtc;
+
+        montantHT = window.prompt('Saisissez le montant HT.');
+        demandeRemise = window.prompt('Souhaitez vous une remise?');
+
+
+        if(demandeRemise == "yes" , demandeRemise == "oui"){
+            montantRemise = window.prompt('Indiquez le pourcentage de remise:');
+            montantTva = window.prompt('Indiquez le pourcentage de la TVA:');
+            calculRemise = montantHT - (montantHT * montantRemise /100);
+            calculTvaRemise = calculRemise * montantTva/100;
+            totalTtcRemise = calculRemise + calculTvaRemise;
+            document.write("<p>Pour un montant HT de " + montantHT + "€, d'une remise à: " + montantRemise + "% et d'une TVA à: " + montantTva + "%.</p>");
+            document.write("<p>Le TOTAL est de: " + totalTtcRemise + "€.</p>");
+        }
+        else{
+            montantTva = window.prompt('Indiquez le pourcentage de la TVA:');
+            totalTtc = parseInt(montantHT) + parseInt(montantHT * montantTva / 100);
+            document.write("<p>Pour un montant HT de " + montantHT + "€, et d'une TVA à: " + montantTva + "%.</p>");
+
+            document.write('<p>Le montant TTC est de: ' + totalTtc + "€.</p>")
+            
+        }
+
+
+    </script>
+</body>
+</html>

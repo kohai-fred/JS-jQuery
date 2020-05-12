@@ -1,0 +1,97 @@
+<!-- 
+
+    https://sharemycode.fr/s8r
+
+le mot-clé this
+dans une fonction appelée par evt,this VAUT l'elt HTML sur lequel l'evt a été déclenché
+
+On l'utilise souvent dans une fonction appelée par un evt, 
+lorsque l'evt a été posé sur une collection d'elt HTML
+
+intérêt : dans la fonction, récupérer l'élt HTML cible qui a reçu l'evt (click)
+
+----------------
+ex-selecteur-photo
+> index.html
+> css
+> js
+> images
+
+## Organisation
+
+    /css/style.css  Feuille de styles principale
+    /images        Les photos à afficher
+    /js/main.js    Programme principal
+    /index.html    Page principale
+
+-----------------
+
+## Consignes
+
+### HTML
+
+Dans l'en-tête de  la page :
+
+- Ajouter un titre au programme : "Sélecteur de Photos".
+
+Dans la partie principale de la page :
+
+- Créer une liste (*id : photo-list*) affichant toutes les photos du dossiers *images*.
+- Ajouter un paragraphe (*id : total*) avec le message "Vous avez sélectionné 0 photo(s)", le chiffre 0 devant s'afficher en italique. <em></em>
+
+### CSS
+
+- Le nombre de photos sélectionnées doit s'afficher en rouge et en gras.
+- Les photos doivent s'afficher les unes à côté des autres sur une largeur de 800 pixels, sans les puces, avec une sur les li : marge de *1em* et un padding de *0.5em*.
+- Au survol d'un élément de la liste *photo-list*, la couleur de fond devient grise (*silver*).
+- Quand un élément de la liste *photo-list* à la classe *selected*, la couleur de fond devient verte (*forestgreeen*).
+
+
+### Interactions
+
+- Quand on clique sur un élément de la liste *photo-list*, l'élément en question se voit affecter la class *selected* et le message avec le nombre de photos sélectionnées se met à jour. Un deuxième clic inverse l'opération.
+
+## Remarque
+
+1. Commencer par déclarer les variables globales nécessaires.
+2. Dans le code principal initialiser les variables globales puis installer le gestionnaire d'évènements.
+3. Ecrire le code du gestionnaire d'évènements en parlant du **point important** expliqué ci-dessus.
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ex-selecteur-photo</title>
+     <link rel="stylesheet" href="css/style.css">
+ </head>
+ <body>
+    <header>
+    <h1>Selecteurs de photos</h1>
+
+    </header>
+
+    <main>
+
+        <ul id="photo-list">
+
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/8.jpg" alt=""></li>
+            <li><img src="img/9.jpg" alt=""></li>
+            <li><img src="img/10.jpg" alt=""></li>
+
+        </ul>
+
+        <p id="total">"Vous avez sélectionné <em>0</em> photo(s)"</p>
+    </main>
+     <script src="js/main.js"></script>
+ </body>
+ </html>

@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+}
+
+h1, h2{
+    font-family: 'Merienda', cursive;
+}
+
+h2{
+    color: #2F4073;
+}
+
+
+
+/******************************** 
+        HEADER
+*********************************/
+
+header{
+    background-color: #061339;
+    
+    a{
+    color: #fff;
+    font-family: 'Merienda', cursive;
+
+    }
+}
+
+/***************************** 
+        MAIN
+******************************/
+
+/* Section Titre */
+.section-titre{
+    background-color: #B9CDFF;
+    background-image: url(../img/background.jpg);
+    color: #fff;
+    padding: 4rem;
+
+    h1{
+        text-shadow: 3px 3px 3px rgba(84,84,84,0.54);
+    }
+   
+}
+
+/* Section Main Un */
+
+.section-main-un{
+    background-color: #ebebeb;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+
+    .formulaire{
+
+        /* Pour la div en cas d'envoir correct */
+        .message-ok{
+            display: none;
+            background-color: green;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 5px;
+            padding: 0.5rem;
+            
+        }
+        /* fin */
+        h2{
+            padding: 1rem;
+            
+        }
+        .form{
+            
+            /* border: 1px solid #ffffff; */
+            box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+            padding: 10px 10px 30px 10px;
+            border-radius: 5px;
+            padding: 10px;
+
+            .form-group{
+
+
+
+                label{
+                    font-weight: bolder;
+                }
+
+                textarea{
+                    min-height: 8rem;
+                }
+            }
+        }
+
+        button{
+            width: 100%;
+            
+        }
+    }
+}
+/* Style pour erreur formulaire */
+.color-error{
+    box-shadow: 0px 0px 9px 0px rgba(255,0,0,1);
+}
+
+/* Section Main Deux */
+
+.section-main-deux{
+    background-color: #dedede;
+    padding: 2rem;
+
+    h2{
+        padding-bottom: 1rem;
+    }
+
+    .para-deux{
+        margin: 0;
+        padding-bottom: 2rem;
+    }
+
+    .img-tete-chat{
+        
+        padding: 0;
+        
+
+        img{
+            
+            background-color: #7885A5;
+            width: 100%;
+            
+            &:hover{
+                background-color: #061339;
+            }
+        }
+
+    }
+
+}
+
+/****************************** 
+        FOOTER
+*******************************/
+footer{
+    background-color: #061339;
+    color: #fff;
+
+    p{
+        margin: 0;
+        padding: 0.8rem;
+    }
+}

@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+.rectangle{
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: royalblue;
+}
+
+.hide{
+    display: none;
+}
+
+.important{
+    background-color: firebrick;
+}
+
+.good{
+    background-color: limegreen;
+}
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opération mathématiques</title>
+
+</head>
+
+<body>
+
+
+    <script>
+          const TAUX_TVA = 20/100;
+  // TAUX_TVA = 30; // Produit une erreur - on ne peut pas changer la valeur d'une const
+ 
+  // Déclarations
+  var montant_ht;
+  var montant_tva;
+  var montant_ttc;
+  
+  // assigner 100 à montant_ht
+  montant_ht = 100;
+  
+  // calculer montant_tva et afficher le dans la console
+  montant_tva = montant_ht * TAUX_TVA; // 20
+  console.log('montant TVA', montant_tva);
+
+  // calculer montant_ttc et afficher le dans le console
+  montant_ttc = montant_ht + montant_tva;
+  console.log('montant TTC ', montant_ttc);  
+
+  /* 
+  	Incrémentation / décrémentation 
+  */
+  // montant_ttc = montant_ttc + 1;
+  montant_ttc++; 
+  console.log(montant_ttc); // 121
+  //montant_ttc = montant_ttc -1; 
+  montant_ttc--;
+  console.log(montant_ttc); // 120
+  
+  // Modulo /  Math.round(), Math.ceil(), Math.floor
+  // Calculer un nombre d'heure et minutes à partir d'une donnée en minute
+  var duree = 90; 
+  var heure;
+  var minutes;
+  heure = Math.floor(duree/60); // 1
+  minutes = duree%60; //30
+  
+  // 1h30mn "1h30mn"
+  // LA CONCATENATION : assembler des chaines de caracteres
+  document.write(heure + "h" + minutes +"mn" ); // "1h30mn"    </script>
+    
+</body>
+
+</html>

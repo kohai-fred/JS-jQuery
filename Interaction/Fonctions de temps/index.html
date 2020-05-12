@@ -1,0 +1,57 @@
+h39
+> fontions-de-temps
+	> index.html
+    
+https://developer.mozilla.org/fr/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+
+
+setTimeout execute une fonction après un délai détermine
+    
+ <html>
+ 
+     <head>
+     
+		<title>Les fonctions de temps</title>
+     </head>
+
+     <body>
+         <h1>Les fonctions de temps</h1>
+         <p>0</p>
+        
+        <script>
+        /* 
+        setTimeout(function, delay en ms)
+        setTimeout execute une fonction après un délai détermine
+         */
+        /* function sayHello() {
+        	alert("Hello")
+        }
+        
+        setTimeout(sayHello, 3000); */
+
+
+        /* 
+            setInterval(function, delay en ms)
+            setInterval execute une fonction tous les <daly determine>
+
+            setInterval renvoir un ID unique qui est une valeur numérique
+
+            On peut stopper un setInterval avec la fonction clearInterval(32)
+         */
+
+         var counter = 0;
+
+         function increment(){
+             counter++;
+             document.querySelector('p').textContent = counter;
+         }
+
+         var id = setInterval(increment, 1000);
+        console.log('id');
+        
+        </script>
+
+     </body>
+ 
+ </html>

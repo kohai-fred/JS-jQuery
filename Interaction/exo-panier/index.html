@@ -1,0 +1,248 @@
+https://sharemycode.fr/rsy
+https://www.alsacreations.com/article/lire/1397-html5-attribut-data-dataset.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+
+ <title>Exercice Panier Console</title>
+ <style>
+  .container {
+   width: 700px;
+   margin: 20px auto
+  }
+
+  .list {
+   display: flex;
+   justify-content: space-between;
+  }
+
+  .card {
+   background: aliceblue;
+   padding: 15px;
+   margin: 15px;
+   text-align: center;
+   border-radius: 6px;
+   border: 1px solid #7cc2ff;
+  }
+
+  img {
+   width: 100%;
+   height: 150px;
+  }
+ </style>
+
+</head>
+
+<body>
+ <h1>Les produits</h1>
+
+ <div class="container">
+  <div class="list">
+   <!-- LES CARTES PRODUITS -->
+   <div class="card">
+    <img
+     src="https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwffab8a09/images/high-res/91507.jpg?sw=480&sh=480&sm=fit">
+    <h2>X Box</h2>
+    <p>299.00€</p>
+    <button class="add" data-name="xbox">Ajouter au panier</button>
+   </div>
+
+   <div class="card">
+    <img
+     src="https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dw0d9a8db5/images/high-res/99778.jpg?sw=480&sh=480&sm=fit">
+    <h2>Playstation 4</h2>
+    <p>359.00€</p>
+    <button class="add" data-name="playstation 4">Ajouter au panier</button>
+   </div>
+
+   <div class="card">
+    <img
+     src="https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dw0e63f9cf/images/high-res/104704.jpg?sw=480&sh=480&sm=fit">
+    <h2>Nintendo Switch</h2>
+    <p>309.00€</p>
+    <button class="add" data-name="switch">Ajouter au panier</button>
+   </div>
+  </div> <!-- FIN LIST-->
+
+  <div class="panier">
+   <h2>Panier</h2>
+    <h3><span class="nb">0</span> produits</h3>
+   <div class="contenu-panier">
+    <!-- AFFICHER LE CONTENU PANIER-->
+   </div>
+   <hr>
+   <div class="totalPrice">
+   	<!-- AFFICHER LE PRIX TOTAL-->
+    <!-- Prix Total : 25.00€ -->
+   </div>
+
+   <button class="clear">Vider le panier</button>
+  </div> <!-- FIN div.panier-->
+
+ </div>
+
+
+ <script>
+  var products = [
+   { name: "xbox", price: 299 },
+   { name: "playstation 4", price: 359 },
+   { name: "switch", price: 309 },
+  ];
+  var panier = [];
+
+  /*
+   rôle : afficher la liste
+  */
+  function printList() {
+
+    document.querySelector("span.nb").textContent = panier.length;
+
+   if (panier.length == 0) {
+    // vider le body
+    document.querySelector(".contenu-panier").innerHTML = "";
+    document.querySelector(".totalPrice").innerHTML = "";
+   }
+   else {
+    // vider le body
+    document.querySelector(".contenu-panier").innerHTML = "";
+    
+    // Afficher la liste
+    for (var i = 0; i < panier.length; i++) {
+     document.querySelector(".contenu-panier").innerHTML += "<p><button data-name='" + panier[i].name + "' class='remove'>Supprimer </button>" + panier[i].name + " " + panier[i].price.toFixed(2) + "€</p>"
+    } // fin affichage liste
+    
+    // poser un écouteur d'evt qui ont class remove
+    // Poser un écouteur d'evt click sur tous les boutons qui ont la class CSS remove | l'action du click doit executer removeProduct
+    // 1 Selectionner TOUS les boutons qui ont la class CSS 'remove' [<button>,.....]
+    // 2 Poser un écouteur d'evt click sur chacun des boutons, qui exécutera removeProduct
+    // 3 Modifier la fonction removeProduct 
+    //   -> retirer le paramètre
+    //   -> déterminer la valeur de productName en la récupérant depuis l'attribut data-name
+    //      var productName = ......
+    var removeButtons = document.querySelectorAll('button.remove'); // [<button>,.....]
+    for(var i=0; i<removeButtons.length; i++) {
+      removeButtons[i].addEventListener('click', removeProduct);
+    }
+    
+    
+    
+    
+    
+   }
+  } // Fin function printList()
+
+
+
+
+   /*
+   rôle : AFFICHER LE PRIX TOTAL
+  */
+  function printTotal() {
+   var total = 0;
+   for (var i = 0; i < panier.length; i++) {
+    total = total + panier[i].price;
+   }
+   console.log(total);
+   var priceElt =  document.querySelector('div.totalPrice');
+   priceElt.innerHTML = "<p>Prix total : " + total.toFixed(2) + "€</p>";
+   // document.write("<p>Prix total" + total.toFixed(2) + "€</p>")
+  }
+
+  /*
+   nom  : addProduct
+   param: string (nom du produit à ajouter dans panier)
+   rôle : ajouter un produit
+   (utilser la function push)
+   exemple à l'éxecution : addProduct("Switch")
+   https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/push
+  */
+  function addProduct() {
+   var productName = this.dataset.name;
+   var product = products.find(function (element) { return element.name == productName })
+   // { name: "xbox", price:299} ou { name: "switch", price:309}
+
+   if (product != undefined) {
+    panier.push(product); // 1 ajoute l'objet produit dans le tableau panier
+    printList();		 // 2 Réafficher la liste des produits du panier
+    printTotal();		//  3 Réafficher le prix total
+   }
+  }
+
+  /*
+  	nom : clearPanier
+    rôle vide le tableau panier
+  */
+  function clearPanier() {
+   // 1 vider le tableau panier
+   panier = [];
+   // 2 executer printList()
+   printList();
+  }
+
+  /*
+  	nom : removeProduct
+    rôle : supprimer un produit du tableau panier
+    param: string - nom du produit
+    (utiliser la fonction indexof() et splice() )
+    https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/splice
+  */
+  function removeProduct() {
+   console.log(this); // <button data-name="xbox">Supprimer</button>
+   // je veux récupérer la valeur de l'attribut data-name du bouton qui vient d'être clické
+   var productName = this.dataset.name; // ex : "xbox"
+   var product = panier.find(function (element) { return element.name == productName });
+   // Retourne un objet product du panier
+
+   // 1 trouver l'index du produit à supprimer grace à indexOf()
+   var index = panier.indexOf(product); // retourne l'index du produit 
+   console.log(index);
+   // SI LE PRODUIT n'existe pas
+   if (index == -1) {
+    alert("Ce produit n'existe pas");
+   }
+   // SINON (le produit existe)
+   else {
+    // 2 supprimer le produit du tableau grâce à splice()
+    panier.splice(index, 1);
+    console.log(panier);
+    // 3 Réafficher liste
+    printList();
+    printTotal();
+   }
+  }
+
+
+
+  printList();
+  
+  // Poser un écouteur d'evt click sur TOUS les boutons qui ont la class CSS add
+  var addButtons = document.querySelectorAll('button.add'); // [<button>, <button>, <button>]
+  
+  for(var i=0; i<addButtons.length; i++ ) {
+  	 addButtons[i].addEventListener('click', addProduct);
+  }
+  
+  // Poser un écouter d'ev click sur le bouton qui ont la class CSS clear | l'action du click doit executer la fonction clearPanier
+  // 1 Selectionner le bouton "vider le panier" (querySelector)
+  // 2 Poser un écouteur d'evt dessus qui exéctuera clearPanier
+  var clearButton = document.querySelector('button.clear');
+  clearButton.addEventListener('click', clearPanier);
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+ </script>
+</body>
+
+</html>

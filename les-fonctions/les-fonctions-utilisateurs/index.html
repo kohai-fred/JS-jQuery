@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        
+
+        function addition(nb1, nb2){
+           resultat = nb1 + nb2;
+
+            document.write('<p>Le résultat est: ' + resultat + '</p>')
+        };
+
+        addition(5, 8);
+        console.log(addition);
+
+      
+    </script>
+    /*
+    Les fonctions utilisateur
+    - elles permettent la réutilisabilité du code
+    - elles permettent d'organiser son code
+    - elles ont un nom
+    - elles peuvent accepter un plusieurs paramètres
+    - elle peuvent exécuter du code et éventuellement une valeur
+   */
+   // 1 fr, 2 en, 3 es
+   var language = 1;
+   
+ 
+   
+   /* PHASE 1 : CREER UNE FONCTION */
+   function direBonjour() {
+      // Code que la fonction exécuter
+      if(language == 1) {
+           document.write("Bonjour")
+       }
+       else if(language == 2) {
+         document.write("Hello")
+       }
+       else if(language == 3) {
+         document.write("Hola")
+       }
+   }
+   
+   /* PHASE 2 : EXECUTER UNE FONCTION */
+   direBonjour();
+   
+   /*********************************************************/
+   // CREER UNE FONCTION QUI ACCEPTE UN OU PLUSIEURS PARAMETRES
+   
+   // La déclaration
+   function sayHelloTo(firstname, lastname) {
+       // firstname est une varible qui n'existe que dans la fonction
+     document.write("<p>Hello " + firstname + " " + lastname "</p>");
+   }
+   // L'exécution
+   sayHelloTo("Fred", 'Lo'); // "Hello Fred"
+   sayHelloTo("Leïla"); // "Hello Leïla"
+   
+   
+   
+   /* 
+   MINI EXO
+   Créer une fonction dont le nom est : additionner
+   -> elle doit accepter 2 paramètres (de type nombre)
+   -> rôle : afficher la phrase "Le résultat de l'addition est : 25"
+   */
+   
+   /*
+       Créer la fonction additionner
+   */
+   function additionner(nb1, nb2) {
+     var resultat = nb1+nb2;
+       document.write('<p>Le résultat est : ' + resultat + "</p>")
+   }
+   
+   
+   additionner(7,9); // "Le résultat de l'addition est : 16"
+   additionner(56,8798);
+   
+   /* CREER UN FONCTION MULTIPLIER */
+   function multiplier(nb1, nb2) {
+     return nb1*nb2
+   }
+   
+   multiplier(7,9); // 63
+   multiplier(2,2); // 4
+</body>
+</html>

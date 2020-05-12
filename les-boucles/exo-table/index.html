@@ -1,0 +1,110 @@
+https://sharemycode.fr/w06
+	>ex-table-multiplication
+		> index.html
+
+## Enoncé
+
+Construire une table des multiplications en HTML
+
+## Remarques
+
+* Pour rappel, une boucle permet de répéter du code
+* Utiliser une <table> HTML pour construire l'affichage
+
+* BONUS : Au moment de l'affichage HTML, lorsque le nombre est multiplié par lui-même (1x1, 2x2, 3x3, etc.) la cellule du tableau doit s'afficher d'une autre couleur que les autres cellules; **la solution doit être en CSS**.
+
+
+<html>
+<head>
+	<title>exercice Table Multiplication</title>
+    <style>
+    tr {
+    	border: 1px solid #ccc
+    }
+    td {
+    	width:2em;
+        height:2em;
+        background: #eee
+    }
+    td.same-number {
+    	background: blue;
+        color: #fff;
+    }
+    </style>
+    
+</head>
+<body>
+	<h1>Exercice Table Multiplication</h1>
+    
+    <script>
+    var taille = parseInt( window.prompt('Saisissez la taille de la table') );
+
+    /*
+       LE TEMPLATE HTML A GENERER EN JS
+       <table>
+       	<tbody>
+           	<tr>
+            	<td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+            	<td>2</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+       </table>
+    */
+    document.write("<table>");
+    document.write("<tbody>");
+    // ICI JE GENERE LES LIGNES ET LES CELLULES (tr, td)
+    
+    // je génère les lignes
+    for(var ligne=1; ligne<=taille; ligne++) {
+    	document.write('<tr>');
+        
+        // Je génère les cellules
+        for(var cell=1; cell<=taille; cell++) {
+        	// document.write('<td class="same-number">');
+        	// document.write('<td>');
+            if(ligne==cell) {
+            	document.write('<td class="same-number">');
+            }
+            else {
+            	document.write('<td>');
+            }
+            document.write(ligne*cell);
+            document.write('<td>');
+        }
+        
+        document.write('</tr>');  
+    }
+    
+    
+    
+    document.write("</tbody>");
+    document.write("</table>");
+    
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

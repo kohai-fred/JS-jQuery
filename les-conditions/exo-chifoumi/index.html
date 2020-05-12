@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo - chifoumi</title>
+</head>
+<body>
+    
+
+    <script>
+        /* 
+        
+        https://sharemycode.fr/vfy
+
+ex-chifoumi
+	> index.html
+
+> Math.random()
+renvoie un nombre aléatoire entre 0 et 1
+
+## Enoncé
+
+L'utilisateur choisit dans un prompt du navigateur pierre, feuille ou ciseau, 
+l'ordinateur choisit aléatoirement l'une des trois possibilités, et la partie commence !
+
+## Remarques
+
+* On doit pouvoir indifféremment saisir le mot en minuscules comme en majuscules.
+* Le ciseau est écrasé par la pierre.
+* La feuille est découpée par le ciseau.
+* La pierre est enveloppée par la feuille.
+* Si le joueur et l'ordinateur font le même choix on obtient une égalité.
+
+
+PARTIE 1 :
+Déterminer le choix du player et computer
+
+PARTIE 2 : 
+les confrontations - il y a 9 confrontations à traiter donc 9 conditions
+
+SI player a choisit 'ciseau' ET le computer a choisit 'feuille'
+-> Afficher : La feuille est découpée par le ciseau. Vous gagnez
+
+--------------------------------------------------------------------
+
+COMMENT GENERER UN CHOIX AU HASARD ('pierre', 'feuille', ou 'ciseau')
+
+|-----------------|-------------------------|----------------->
+0				1/3					    2/3		   		  1
+	pierre              feuille              ciseau
+    
+ */
+
+ var player;//'pierre', 'feuille', 'ciseau'
+ var computer;//'pierre', 'feuille', 'ciseau'
+
+ var random; // nb au hasard entre 0 et 1
+
+        /* 
+        Partie 1 : RECUPERER le choix de player et le choix de computer
+        */
+
+player = window.prompt("Choisissez entre :  pierre, feuille ou ciseau");
+
+random = Math.random(); //nb au hasard entre 0 et 1
+
+if(random < 1/3){
+    computer = 'pierre';
+}
+else if(random < 2/3){
+    computer = 'feuille';
+}
+else{
+    computer = 'ciseau';
+}
+
+//vérification
+//console.log('player', player);
+//console.log('computer', computer);
+
+    /* 
+        Partie 2 : Confrontations
+        */
+
+if(player == 'pierre' && computer == 'feuille'){
+    document.write("<p>La pierre est enveloppé par la feuille, vous avez PERDU</p>"); 
+}
+else if(player == 'pierre' && computer == 'ciseau'){
+    document.write("<p>Le CISEAU est écrasé par la PIERRE, vous avez GAGNEZ</p>");
+}
+else if(player == 'pierre' && computer == 'pierre'){
+    document.write("<p>EGALITE");
+}
+
+else if(player == 'feuille' && computer == 'pierre'){
+    document.write("<p>La pierre est enveloppé par la feuille, vous avez GAGNEZ</p>"); 
+}
+else if(player == 'feuille' && computer == 'ciseau'){
+    document.write("<p>La feuille est découpée par le ciseau, vous avez PERDU<p>");
+}
+else if(player == 'feuille' && computer == 'feuille'){
+    document.write("<p>EGALITE</p>");
+}
+
+else if(player == 'ciseau' && computer == 'pierre'){
+    document.write("<p>Le CISEAU est écrasé par la PIERRE, vous avez PERDU</p>");
+}
+else if(player =='ciseau' && computer == 'feuille'){
+    document.write("<p>La feuille est découpée par le ciseau, vous avez GAGNEZ<p>");
+}
+else if(player == 'ciseau' && computer == 'ciseau'){
+    document.write("<p>EGALITE</p>");
+}
+else{
+    document.write("<p>Ecris correctement</p>");
+}
+console.log('player', player);
+console.log('computer', computer);
+
+// On peut simplifié en traitant les égalités avec
+ // SI EGALITE
+  /*
+  if(player==computer) {
+   document.write('<p>Egalité</p>');
+  }
+
+  // SINON (il y a confrontation)
+  else {
+
+   // si le player a choisi "pierre"
+   if(player=='pierre' && computer=='feuille') {
+ 	document.write('<p>La pierre est enveloppée par la feuille.</p>');
+    document.write('<p>Vous avez perdu.</p>')
+   }
+   else if(player=='pierre' && computer=='ciseau') {
+ 	document.write('<p>Le ciseau est écrasé par la pierre.</p>');
+    document.write('<p>Vous avez gagné.</p>')
+   }
+   
+   // si le player a choisi "feuille"
+   else if(player=='feuille' && computer=='pierre') {
+ 	document.write('<p>La pierre est enveloppée par la feuille.</p>');
+    document.write('<p>Vous avez gagné.</p>')
+   }
+   else if(player=='feuille' && computer=='ciseau') {
+ 	document.write('<p>La feuille est découpée par le ciseau.</p>');
+    document.write('<p>Vous avez perdu.</p>')
+   }
+ 
+   // si le player a choisi "ciseau"
+   else if(player=='ciseau' && computer=='pierre') {
+ 	document.write('<p>Le ciseau est écrasé par la pierre.</p>');
+    document.write('<p>Vous avez perdu.</p>')
+   }
+   else if(player=='ciseau' && computer=='feuille') {
+ 	document.write('<p>La feuille est découpée par le ciseau.</p>');
+    document.write('<p>Vous avez gagné.</p>')
+   }
+  } // FIN else (les confrontation)
+  */
+  // FIN 1ere VERSION
+
+
+
+  /* 2 ème VERSION : en imbriquant des conditons*/
+/*
+  if (player == computer) {
+   document.write('Il y a égalité');
+  }
+  else {
+
+   if (player == 'pierre') {
+    if (computer == 'feuille') {
+     document.write('<p>La pierre est enveloppée par la feuille.</p>');
+     document.write('<p>Vous avez perdu.</p>')
+    }
+    else if (computer == 'ciseau') {
+     document.write('<p>Le ciseau est écrasé par la pierre.</p>');
+     document.write('<p>Vous avez gagné.</p>')
+    }
+   }
+
+   /**/
+   if (player == 'feuille') {
+    if (computer == 'ciseau') {
+     document.write('<p>La feuille est découpée par le ciseau.</p>');
+     document.write('<p>Vous avez perdu.</p>')
+    }
+    else if (computer == 'pierre') {
+     document.write('<p>La pierre est enveloppée par la feuille.</p>');
+     document.write('<p>Vous avez gagné.</p>')
+    }
+   }
+
+   /**/
+   if (player == 'ciseau') {
+    if (computer == 'feuille') {
+     document.write('<p>La feuille est découpée par le ciseau.</p>');
+     document.write('<p>Vous avez gagné.</p>')
+    }
+    else if (computer == 'pierre') {
+     document.write('<p>Le ciseau est écrasé par la pierre.</p>');
+     document.write('<p>Vous avez perdu.</p>')
+    }
+   }
+
+   
+  // FIN ELSE
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+#photo-list{
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    list-style: none;
+    padding-left: 0;
+
+}
+
+#photo-list li{
+    margin: 1em;
+    padding: 0.5em;
+}
+
+#photo-list li:hover{
+    background-color: silver;
+    border-radius: 5px;
+}
+
+.selected{
+    background-color: forestgreen;
+}
+
+#total em{
+    color: red;
+}

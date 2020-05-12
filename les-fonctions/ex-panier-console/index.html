@@ -1,0 +1,124 @@
+https://sharemycode.fr/cf6
+> ex-panier-console
+	> index.html
+    
+# Enoncé
+Créer un système de panier ecommerce
+-> Créer un tableau panier
+-> Créer les fonctions du panier
+    * printList()
+      - Rôle : afficher la liste des produits du tableau panier 
+
+	* addProduct(nomDuProduit) 
+      - peut prendre en paramètre une string
+      - rôle : ajouter un produit dans le tableau panier ET réafficher la liste
+    
+    * removeProduct(nomDuProduit) 
+      - peut prendre en paramètre une string
+      - rôle : retirer le produit dans le tableau panier ET réafficher la liste
+    
+    * clearPanier : 
+      - rôle: vider le panier
+ 
+     
+-> Tester les fonctions directement la console du navigateur
+   addProduct("Playstation4");
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXO - panier console</title>
+</head>
+<body>
+
+    <h1>Panier dans la console</h1>
+
+    <script>
+
+        var panier = ["xbox", "playstation"];
+        
+ /*
+        rôle : afficher la liste
+ */
+        function printList() {
+            if(panier.length == 0) {
+                // vider le body
+                document.querySelector("body").innerHTML = "";
+            }
+            else {
+                // vider le body
+                document.querySelector("body").innerHTML = "";
+                // Afficher la liste
+                for(var i=0; i<panier.length; i++) {
+                    document.write("<p>"+ panier[i] + "</p>")
+                }
+            }	
+        } 
+        // Fin function printList()
+ 
+        /*
+        nom  : addProduct
+        param: string (nom du produit à ajouter dans panier)
+        rôle : ajouter un produit
+        (utilser la function push)
+        exemple à l'éxecution : addProduct("Switch")
+        https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/push
+        */
+
+            function addProduct(product) {
+            // 1 ajouter product dans le tableau panier
+            panier.push(product);
+            console.log(panier);
+            // 2 réafficher la liste
+            printList();
+            }
+  
+  
+            /*
+                nom : clearPanier
+                rôle vide le tableau panier
+            */
+            function clearPanier() {
+                // 1 vider le tableau panier
+                panier = [];
+                // 2 executer printList()
+                printList();
+            }
+
+            /* 
+            
+                nom : removeProduct
+                rôle : supprimer un produit du tableau panier
+                param: string - nom du produit
+                (utiliser la fonction splice() )
+             */
+
+             /*https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/splice */
+
+            function removeProduct(product) {
+                    // 1 trouver l'index du produit à supprimer grace à indexOf()
+                var index = panier.indexOf(product); // retourne l'index du produit  
+                    // SI LE PRODUIT n'existe pas
+                if(index == -1) {
+                    alert("Ce produit n'existe pas");
+                }
+                    // SINON (le produit existe)
+                else {
+                    // 2 supprimer le produit du tableau grâce à splice()
+                    panier.splice(index, 1);
+                    console.log(panier);
+                    // 3 Réafficher liste
+                    printList();
+                }
+            
+            
+            }
+  
+
+         
+    </script>
+
+</body>
+</html>

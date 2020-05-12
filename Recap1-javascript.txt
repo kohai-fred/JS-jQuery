@@ -1,0 +1,68 @@
+RECAPITUALATIF
+https://sharemycode.fr/b5j
+
+1 PROGRAMMATION
+variables - type (string, number, boolean, Array, Object)
+opérateurs de comparaison ( ==, ===, ..., !=, !==)
+
+conditions : Exécuter du code SI une expression vaut TRUE
+if, if/else, if/else if/else (switch() { ....} )
+
+boucles : Répéter du code
+- for(initialisation, condition de continuité, pas incrémentation) { code à éxucuter } 
+  permet de répéter du code un nombre de fois détérminé
+- while(expression qui vaut TRUE ou FALSE) { code à éxucuter }
+  permet de répéter du code tant que qqchose est vrai
+- do { code à éxécuter } while(expression qui vaut TRUE ou FALSE)
+  comme la boucle while mais éxécute le code une première fois quoiqu'il arrive
+  
+functions
+Elle est réutilisable et permet d'organiser son code par fonctions logiques
+// on déclare une fonction 
+function nomDeLaFonction() { code à éxucuter }
+// on peut l'exécuter
+nomDeLaFonction()
+
+---------------------------------------------
+
+2 Gestion des interaction
+
+- Savoir sélectionner des eltms
+  document.getElementById() // retourne le 1er elmt qui a l'id specifié
+  document.getElementsByClassName() // retourne une collection d'elts qui ont la class spécifié
+  document.getElementsByTagName() // retourne une collection d'elts qui ont le nom de balise HTML spécifié
+  
+  document.querySelector('') // retourne le 1er elt qui correspond à la selection CSS spécifiée
+  document.querySelectorAll() // retourne une collection elts qui correspondent à la selection CSS spécifiée
+  
+- Savoir modifier la page HTML (Savoir accéder au DOM et le modifier)
+  elt.textContent = 'du texte'
+  elt.innerHTML = '<span>du HTML</span>'
+  elt.style.color = "#ff0022"
+  elt.classList.add() // ajoute une class CSS à l'elt
+  elt.classList.remove() // retire une class CSS à l'elt
+  elt.classList.toggle() // ajoute/retire alternativement une class CSS à l'elt
+  elt.classList.contains() // renvoie TRUE ou FALSE selon que l'elt a la class CSS ou pas
+  elt.classList.replace() // permet de remplacer une class CSS par une autre
+  createElement, createTextNode, appendChild(), insertAfter(), insertBefore()
+  
+- Savoir gérer les evts
+  elt.addEventListener(nomDeLEvent, functionAExecuter)
+  
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+

@@ -1,0 +1,247 @@
+https://sharemycode.fr/ptc
+
+ex-formulaire
+> index.html
+> 
+
+
+#Enoncé : Réaliser le traitement d'un formulaire
+
+## HTML
+- un titre h1 : gestion de formulaire
+- une baslise form qui contient 3 champs ET un bouton de soumission : 
+  -> input "prenom"
+  -> select "situation" (sélectionner un choix, entrepreneur, salarié, demandeur d'emploi)
+  -> textarea "Votre message"
+  -> bouton type submit <button type="submit">Envoyer</button>
+
+## CSS
+- centrer le contenu dans un container de 500px
+- l'input, le select et le textarea ont une largeur de 100%
+
+
+## JS
+L'interaction : la soumission du form
+--------------------------------------------
+exemple pour récupérer la valeur d'un champ: 
+
+  function onSubmit(event) {
+   event.preventDefault();
+   console.log($('input').val());
+  }
+
+  $('form').on('submit', onSubmit);
+  
+----------------------------------------------
+
+Afficher les erreurs correspondantes sous les champs :
+
+Les règles de validation : 
+-> prenom : 
+   -> le champ doit contenir un prenom
+   -> le prénom doit comporter au moins 2 caractères
+   
+-> situation 
+   -> vous devez sélectionner un choix
+   
+-> message
+   -> le message doit comporter au moins 10 caractères
+   -> le message doit comporte maximum 50 caractères
+   
+-----------------------------------------------
+
+BONUS : 
+Afficher une boite d'alert d'erreur ou de succès
+- En cas d'erreur, elle doit avoir un background red et le message "il y 3 erreurs"
+- En cas de succès, elle doit avoir un background green et le message "Coool, le formulaire a été envoyé !"
+
+------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <title>Formulaire</title>
+
+ <style>
+  body {
+   font-family: Arial, Helvetica, sans-serif;
+  }
+  .form-group {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 1rem;
+  }
+
+  .container {
+   width: 500px;
+   margin: auto;
+  }
+  p.error {
+  	color:red;
+    display:none;
+  }
+  div#control {
+  	padding: 10px;
+    font-size:1.2em;
+    display:none;
+  }
+  .success {
+  	background: green;
+    color:#fff;
+  }
+  .danger {
+  	background: red;
+    color:#fff;
+  }
+ </style>
+
+
+</head>
+
+<body>
+
+ <div class="container">
+  <h1>Gestion de formulaire</h1>
+
+  <!-- Boite d'alert succès ou erreur-->
+  <div id="control"></div>
+  <form>
+
+   <div class="form-group">
+    <label>Prénom</label>
+    <input type="text">
+    <p class="error"></p>
+   </div>
+
+
+   <div class="form-group">
+    <label>Situation</label>
+    <select>
+     <option value="0">-- Veuillez sélectionnez un choix</option>
+     <option value="1">Entreprneur</option>
+     <option value="2">Salarié</option>
+     <option value="3">Demandeur d'emploi</option>
+    </select>
+    <p class="error"></p>
+   </div>
+
+   <div class="form-group">
+    <label>Votre message</label>
+    <textarea></textarea>
+    <p class="error"></p>
+   </div>
+   
+   <button type="submit">envoyer</button>
+
+
+  </form>
+
+ </div>
+
+
+ <!-- Charger jquery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+ <script>
+ 	// Selection les élmts (tous les champs, et le formulaire)
+    var form = $('form');
+    var prenomInput = $('input');
+    var situationSelect = $('select');
+    var messageTextarea = $('textarea');
+     
+    // Détecter l'evt submit sur le form -> executer une fonction onSubmit
+    // A la soumission, récupérer la valeur de TOUS les champs, et les afficher dans la console
+    
+     function onSubmit(event) {
+       // 1 empecher la page de se recharger
+       event.preventDefault();
+
+       // 2 on reset tous les p.error en les masquant
+       var nbErrors = 0;
+       $('p.error').text("").hide();
+
+       // 3 on récupérer les valeurs de tous les champs
+       var prenom = prenomInput.val();
+       var situation = situationSelect.val();
+       var message = messageTextarea.val();
+       console.log(prenom);
+       console.log(situation); // "0", "1", "2", "3"
+       console.log(message);
+
+
+       // 4 on traite les erreurs CHAMP par CHAMP
+
+       // Traiter les erreurs du champ prenom 
+       //  -> le champ doit contenir un prenom 
+       //  -> le prénom doit comporter au moins 2 caractères
+       if (prenom.length == 0) {
+        // injecter le texte "le champ doit contenir un prenom" dans le p qui suit l'input
+        prenomInput.next().text("le champ doit contenir un prenom").show();
+        nbErrors++;
+       }
+       else if (prenom.length < 2) {
+        prenomInput.next().text("le prénom doit comporter au moins 2 caractères").show();
+        nbErrors++;
+       }
+
+       /*****************************************/
+       // Traiter les erreurs du champ situation
+       //-> vous devez sélectionner un choix
+       if (situation == 0) {
+        situationSelect.next().text("vous devez sélectionner un choix").show();
+        nbErrors++;
+       }
+
+       /*****************************************/
+       // Traiter les erreurs du champ message
+       // -> le message doit comporter au moins 10 caractères
+       // -> le message doit comporter maximum 50 caractères
+       if (message.length < 10) {
+        messageTextarea.next().text("le message doit comporter au moins 10 caractères").show();
+        nbErrors++;
+       }
+       else if (message.length > 50) {
+        messageTextarea.next().text("le message doit comporter maximum 50 caractères").show()
+        nbErrors++;
+       }
+
+       // ON COMPTER LE NOMBRE D'ERREURS
+       // 1ere façon : selectionner TOUS les p.error qui ne sont pas masqués
+       // nbErrors = $('p.error').not('p.error:hidden').length;
+
+       // 2eme façon : déclarer nbErrors = 0, puis l'incrémenter +1 à chaque fois qu'on rencontre une erreur
+       console.log(nbErrors);
+       
+        // On affiche une box d'erreur ou de succès
+        // 
+        if(nbErrors==0){
+        	div.removeClass('danger');
+            div.addClass('success');
+            div.text("Coool, le formulaire a été envoyé !").slideDown();
+            // poster le formulaire au serveur
+        }
+        else{
+        	div.removeClass('success');
+        	div.addClass('danger');
+        	div.text("il y "+nbErrors+" erreur(s)").slideDown();   
+        }
+
+    }
+    
+    
+    form.on('submit', onSubmit);
+    
+    
+    
+ </script>
+
+
+</body>
+
+</html>
+
+
+
+  

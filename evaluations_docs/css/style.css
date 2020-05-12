@@ -1,0 +1,133 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1, h2 {
+  font-family: 'Merienda', cursive;
+}
+
+h2 {
+  color: #2F4073;
+}
+
+/******************************** 
+        HEADER
+*********************************/
+header {
+  background-color: #061339;
+}
+
+header a {
+  color: #fff;
+  font-family: 'Merienda', cursive;
+}
+
+/***************************** 
+        MAIN
+******************************/
+/* Section Titre */
+.section-titre {
+  background-color: #B9CDFF;
+  background-image: url(../img/background.jpg);
+  color: #fff;
+  padding: 4rem;
+}
+
+.section-titre h1 {
+  text-shadow: 3px 3px 3px rgba(84, 84, 84, 0.54);
+}
+
+/* Section Main Un */
+.section-main-un {
+  background-color: #ebebeb;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.section-main-un .formulaire {
+  /* Pour la div en cas d'envoir correct */
+  /* fin */
+}
+
+.section-main-un .formulaire .message-ok {
+  display: none;
+  background-color: green;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.section-main-un .formulaire h2 {
+  padding: 1rem;
+}
+
+.section-main-un .formulaire .form {
+  /* border: 1px solid #ffffff; */
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+  padding: 10px 10px 30px 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.section-main-un .formulaire .form .form-group label {
+  font-weight: bolder;
+}
+
+.section-main-un .formulaire .form .form-group textarea {
+  min-height: 8rem;
+}
+
+.section-main-un .formulaire button {
+  width: 100%;
+}
+
+/* Style pour erreur formulaire */
+.color-error {
+  -webkit-box-shadow: 0px 0px 9px 0px red;
+          box-shadow: 0px 0px 9px 0px red;
+}
+
+/* Section Main Deux */
+.section-main-deux {
+  background-color: #dedede;
+  padding: 2rem;
+}
+
+.section-main-deux h2 {
+  padding-bottom: 1rem;
+}
+
+.section-main-deux .para-deux {
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+.section-main-deux .img-tete-chat {
+  padding: 0;
+}
+
+.section-main-deux .img-tete-chat img {
+  background-color: #7885A5;
+  width: 100%;
+}
+
+.section-main-deux .img-tete-chat img:hover {
+  background-color: #061339;
+}
+
+/****************************** 
+        FOOTER
+*******************************/
+footer {
+  background-color: #061339;
+  color: #fff;
+}
+
+footer p {
+  margin: 0;
+  padding: 0.8rem;
+}
+/*# sourceMappingURL=style.css.map */

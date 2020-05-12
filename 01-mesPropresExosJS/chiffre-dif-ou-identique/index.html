@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo chiffres différents ou identiques?</title>
+</head>
+<body>
+    <h1>Exo js à la maison</h1>
+
+    <div>
+
+        <p></p>
+    </div>
+    
+    <script>
+/* 
+        let quantity;
+        let unit;
+        let k = 1024;
+        let m = 1024 * 1024;
+        let g = 1024 * 1024 *1024;
+        let t = 1024 * 1024 * 1024 * 1024;
+        quantity = window.prompt('choose quantity :');
+        unit = window.prompt('choose unit(k,m,g ou t)'); */
+        
+       /*  if(unit == 'k' ){
+            result = quantity * k;
+            document.write('<p>Le résultat est de : '+result+' octets!</p>');
+            
+        } else if(unit == 'm'){
+            result = quantity * m;
+            document.write('<p>Le résultat est de : '+result+' octets!</p>');
+        } else if(unit == 'g'){
+            result = quantity * g;
+            document.write('<p>Le résultat est de : '+result+' octets!</p>');
+        } else if(unit == 't'){
+            result = quantity * t;
+            document.write('<p>Le résultat est de : '+result+' octets!</p>');
+        }else{
+            document.write('<p> Erreur dans la quantity ou dans unit!</p>')
+        } */
+        /* switch(unit){
+
+            case 'k':
+                result = quantity * k;
+                document.write('<p>Le résultat est de : '+result+' octets!</p>');
+            break;
+
+            case 'm':
+                result = quantity * m;
+                document.write('<p>Le résultat est de : '+result+' octets!</p>');
+            break;
+
+            case 'g':
+                result = quantity * g;
+                document.write('<p>Le résultat est de : '+result+' octets!</p>');
+            break;
+
+            case 't':
+                result = quantity * t;
+                document.write('<p>Le résultat est de : '+result+' octets!</p>');
+            break;
+
+            default:
+                document.write('<p> Erreur dans la quantity ou dans unit!</p>')
+            break;
+        } */
+
+      /*   let num1;
+        let num2;
+        let num3;
+
+        num1 = window.prompt('saisissez un 1er chiffre');
+        num2 = window.prompt('saisissez un 2eme chiffre'); 
+        num3 = window.prompt('saisissez un 3eme chiffre');
+
+        if(num1 === num2, num1 ===num3, num2===num3){
+            document.write('<p>tous les numéros sont identiques!</p>')
+        } else if(num1 === num2 || num2===num3 || num1===num3){
+            document.write('<p>il n\'y a que 2 chiffres identique!</p>')
+        }   else{
+            document.write('<p>aucun nombre est identique!</p>')
+        } */
+
+        
+        //EXO 01
+        //
+        /* for(let i=20; i>0; i=i-2){
+            document.write('<p>'+i+'</p>');
+        } */
+
+        //EXO 02
+        for(let i = 2; i <= 100; i++){
+
+            if(i==3 || i==2 || i==5){
+                document.write(i + 'Je suis un nombre premier <br>'); 
+
+            } else if(i%2 == 0 || i%3 == 0 || i%4 ==0 || i%5 ==0 ){
+                
+            } else{
+             
+                document.write(i + 'Je suis un nombre premier <br>'); 
+                
+            } 
+
+        }
+            //correction du site
+            /* for(let i=2; i<=100; i++){
+                let trouve=false;
+                for(j=2; j<i; j++){
+                    if(i%j==0){
+                        trouve=true;
+                    }
+                    if(trouve==false){
+                        document.write(i,",");
+                    }
+                }
+            }
+ */
+        document.write('<p>aucun nombre est identique!</p>') 
+
+
+    </script>
+</body>
+</html>

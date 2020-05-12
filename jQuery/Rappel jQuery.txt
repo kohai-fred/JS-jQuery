@@ -1,0 +1,56 @@
+Rappels jQuery
+
+1 jQuery est une librairie de fonctions
+  Au début jQuery a été créé pour résoudre un probleme de compatibilité
+  entre les navigateurs
+  
+  Puis il a apporté des + aux developpeurs :
+  - écrire de façon plus courte et compréhensible
+  - "faire" des tâches pour le dev - ex: plus besoin de boucle for 
+  	 pour atteindre plusieurs éléments HTML
+  - proposer des fonctions d'animations simples
+  - proposer une fonction pour réaliser des animations complexes
+  
+  
+2 Syntaxes
+// 2.1 Selection
+$('p#monId');
+
+// 2.2 modification
+elt.text("j'ajoute du texte");
+elt.html("<span>J'ajoute du html</span>");
+elt.css('background-color', "#00ff55");
+
+elt.addClass()
+elt.removeClass()
+elt.toggleClass()
+
+formElt.val()
+
+// 2.3 Evt
+elt.on('click', hello);
+
+// 2.4 Animations simples
+elt.fadeIn(), elt.fadeOut()
+elt.slideDown(), elt.slideUp()
+
+// sans animation
+elt.show()
+elt.hide()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
